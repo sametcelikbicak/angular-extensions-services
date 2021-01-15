@@ -1,5 +1,6 @@
 import { Component, VERSION } from "@angular/core";
 import "./string.extensions";
+import { Test } from "./test";
 
 @Component({
   selector: "my-app",
@@ -8,4 +9,9 @@ import "./string.extensions";
 })
 export class AppComponent {
   title = `Angular ${VERSION.major} service using in extension method `;
+  serviceMessage = "";
+
+  constructor() {
+    this.serviceMessage = Test.serviceMessage();
+  }
 }
