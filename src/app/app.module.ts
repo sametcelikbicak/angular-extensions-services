@@ -1,12 +1,17 @@
-import { NgModule } from "@angular/core";
+import { Injector, NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { FormsModule } from "@angular/forms";
 
 import { AppComponent } from "./app.component";
+import { ServiceLocator } from "./service-locator";
 
 @NgModule({
   imports: [BrowserModule, FormsModule],
   declarations: [AppComponent],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private injector: Injector) {
+    ServiceLocator.injector = this.injector;
+  }
+}
